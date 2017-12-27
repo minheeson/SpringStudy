@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- ".Calculator"클래스를 calculator라는 id를 지정해서 객체(bean) 생성 -->
+	<bean id="calculator" class="spring_ex_3.Calculator" />
+
+	<!-- ".MyCalculator"클래스를 myCalculator라는 id를 지정해서 객체(bean) 생성 -->
+	<bean id="myCalculator" class="spring_ex_3.MyCalculator">
+		<!-- 클래스 내의 필드의 값을 설정 -->
+		<property name="calculator">
+			<ref bean="calculator" /> <!-- bean "calculator"를 참조함 -->
+		</property>
+		<property name="firstNum" value="10" />
+		<property name="secondNum" value="2" />
+
+	</bean>
+
+</beans>
