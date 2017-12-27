@@ -14,17 +14,18 @@
 
 ## DI(Dependency Injection) 와 IOC 컨테이너 
 
-<img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_DI.png" width=500/>
-
 - #### A 객체에서 B/C 객체 이용하는 방법
+
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_DI.png" width=500/>
 
   - 방법 1) A 객체가 B/C 객체를 new 생성자를 통해 직접 생성 
   - 방법 2) __외부에서 생성된 객체__를 __setter() 나 생성자__를 통해 사용하는 방법
     - DI 방식
 
-<img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_IOC.png" width=350/>
 
 - #### IOC 컨테이너
+
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_IOC.png" width=350/>
 
   - 외부(IOC 컨테이너)에서 생성된 B/C 객체를 조립(주입)시켜 setter() 나 생성자를 통해 사용
   - 각각의 객체는 인터페이스를 통해 부품화 
