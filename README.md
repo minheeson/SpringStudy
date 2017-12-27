@@ -33,11 +33,17 @@
   - 방법 2) __외부에서 생성된 객체를 setter() 나 생성자를 통해__ 사용하는 방법 (_DI_)
 
     ```java
-    String configLocation = "classpath:applicationCTX.xml";
-    AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
-    MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
+    //bean을 설정한 xml 파일이 있는 위치 지정  
+    		String configLoc = "classpath:applicationCTX.xml";
+    		
+    		//위치를 참고해서 설정파일 얻어옴   
+    		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLoc);
+    		
+    		//설정파일에서 bean을 가져옴  
+    		//"myCalculator"를 얻어와서 객체를 생성 (주입)  
+    		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
 
-    myCalculator.add();
+    		myCalculator.add();
     ```
 
     ```xml
@@ -45,14 +51,18 @@
     	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    	<bean id="calculator" class="springProject_ex.Calculator" />
+    	<!-- ".Calculator"클래스를 calculator라는 id를 지정해서 객체(bean) 생성 -->
+    	<bean id="calculator" class="spring_ex_3.Calculator" />
 
-    	<bean id="myCalculator" class="springProject_ex.MyCalculator">
+    	<!-- ".MyCalculator"클래스를 myCalculator라는 id를 지정해서 객체(bean) 생성 -->
+    	<bean id="myCalculator" class="spring_ex_3.MyCalculator">
+    		<!-- 클래스 내의 필드의 값을 설정 -->
     		<property name="calculator">
-    			<ref bean="calculator" />
+    			<ref bean="calculator" /> <!-- bean "calculator"를 참조함 -->
     		</property>
     		<property name="firstNum" value="10" />
     		<property name="secondNum" value="2" />
+
     	</bean>
 
     </beans>
