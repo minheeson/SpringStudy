@@ -16,9 +16,9 @@
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_DI.png" width=500/>
 
-- #### 방법 1) IoC/DI가 적용되지 않은 경우
+- #### A 객체에서 B/C 객체 이용하는 방법
 
-  - 동적으로 구현 클래스를 정해주기 어려움 
-- #### 방법 2) IoC/DI가 적용된 경우 
-
-  - 결합도(coupling)는 낮추면서 유연성과 확장성은 향상 
+  - 방법 1) A 객체가 B/C 객체를 new 생성자를 통해 직접 생성 
+  - __방법 2) 외부에서 생성된 객체를 setter() 나 생성자를 통해 사용하는 방법__
+    - 외부(IOC 컨테이너)에서 생성된 B/C 객체를 조립(주입)시켜 setter() 나 생성자를 통해 사용
+    - DI 방식
