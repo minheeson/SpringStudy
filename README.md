@@ -25,7 +25,7 @@
 
 - #### IOC 컨테이너
 
-  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_IOC.png" width=350/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_IOC.png" width=250/>
 
   - 외부(IOC 컨테이너)에서 생성된 B/C 객체를 조립(주입)시켜 setter() 나 생성자를 통해 사용
   - 각각의 객체는 인터페이스를 통해 부품화 
