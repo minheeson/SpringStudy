@@ -20,44 +20,43 @@
 
   - 방법 1) A 객체가 B/C 객체를 new 생성자를 통해 직접 생성 
 
-    - ```java
-      MyCalculator myCalculator = new MyCalculator();
-      myCalculator.setCalculator(new Calculator());
+    ```java
+    MyCalculator myCalculator = new MyCalculator();
+    myCalculator.setCalculator(new Calculator());
 
-      myCalculator.setFirstNum(10);
-      myCalculator.setSecondNum(2);
-      		
-      myCalculator.add();
-      ```
+    myCalculator.setFirstNum(10);
+    myCalculator.setSecondNum(2);
+    		
+    myCalculator.add();
+    ```
 
   - 방법 2) __외부에서 생성된 객체를 setter() 나 생성자를 통해__ 사용하는 방법 (_DI_)
 
-    - ```java
-      String configLocation = "classpath:applicationCTX.xml";
-      AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
-      MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
+    ```java
+    String configLocation = "classpath:applicationCTX.xml";
+    AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+    MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
 
-      myCalculator.add();
-      ```
+    myCalculator.add();
+    ```
 
-    - ```xml
-      <beans xmlns="http://www.springframework.org/schema/beans"
-      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    ```xml
+    <beans xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-      	<bean id="calculator" class="springProject_ex.Calculator" />
+    	<bean id="calculator" class="springProject_ex.Calculator" />
 
-      	<bean id="myCalculator" class="springProject_ex.MyCalculator">
-      		<property name="calculator">
-      			<ref bean="calculator" />
-      		</property>
-      		<property name="firstNum" value="10" />
-      		<property name="secondNum" value="2" />
+    	<bean id="myCalculator" class="springProject_ex.MyCalculator">
+    		<property name="calculator">
+    			<ref bean="calculator" />
+    		</property>
+    		<property name="firstNum" value="10" />
+    		<property name="secondNum" value="2" />
+    	</bean>
 
-      	</bean>
-
-      </beans>
-      ```
+    </beans>
+    ```
 
 - #### IOC 컨테이너
 
