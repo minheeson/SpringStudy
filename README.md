@@ -94,3 +94,27 @@
 
   - xml 파일을 쓰기 위해서는 반드시 클래스에서 setter() 만들어줘야 가능 
   - 생성, 조립 모두 컨테이너의 역할 
+
+## DI 활용
+
+- #### DI (Dependency Injection) :: 의존 주입 
+
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/5_DI.png" width=400/>
+
+  - DI 장점 : JAVA 파일의 수정 없이 __스프링 설정 파일만을 수정하여__ 부품들을 생성/조립할 수 있음
+
+    ```java
+    AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationCTX.xml");
+    Pencil pencil = ctx.getBean("pencil", Pencil.class);
+    pencil.use();
+    		
+    ctx.close();
+    ```
+
+    ```xml
+    <bean id="pencil" class="spring_ex_5.Pencil6B"/>
+    <!-- <bean id="pencil" class="spring_ex_5.Pencil4B"/> -->
+    <!-- <bean id="pencil" class="spring_ex_5.Pencil6BWithEraser"/> -->
+    ```
+
+    - applicationCTX.xml 에서 클래스만 바꿔주고 있음 
