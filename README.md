@@ -180,3 +180,16 @@
   - @Configuration, @Bean 어노테이션 이용 
 
 - #### XML과 JAVA를 같이 사용 
+
+## LifeCyle & Scope
+
+- #### Container LifeCycle
+
+  <img src="" width=500/>
+
+- #### Spring Bean LifeCycle
+
+  - 방법 1) 인터페이스 이용
+  - 방법 2) 어노테이션 이용 
+
+- #### Spring Bean Scope
