@@ -101,7 +101,7 @@
 
   <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/5_DI.png" width=500/>
 
-- #### DI 장점 :: JAVA 파일의 수정 없이 _스프링 설정 파일만을 수정하여_ 부품들을 생성/조립할 수 있음 
+- DI 장점 :: JAVA 파일의 수정 없이 __스프링 설정 파일만을 수정하여__ 부품들을 생성/조립할 수 있음
 
   ```java
   AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationCTX.xml");
