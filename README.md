@@ -181,15 +181,48 @@
 
 - #### XML과 JAVA를 같이 사용 
 
-## LifeCyle & Scope
+## LifeCyle 
 
 - #### Container LifeCycle
 
-  <img src="" width=500/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/7_containerLifecycle.png" width=500/>
 
 - #### Spring Bean LifeCycle
 
-  - 방법 1) 인터페이스 이용
+  - 방법 1) InitializingBean, DisposableBean Interface 이용 
+
+    ```java
+    public class Student implements InitializingBean, DisposableBean{
+
+    	/* ... */
+
+    	@Override
+    	public void afterPropertiesSet() throws Exception {
+    		// 빈 초기화 과정에서 호출 (생성되는 시점)
+    		System.out.println("afterPropertiesSet()");
+    	}
+
+    	@Override
+    	public void destroy() throws Exception {
+    		// 빈 소멸 과정에서 호출
+          	// ctx.close()는 컨테이너가 소멸하는 단계, 컨테이너가 소멸하면 빈은 자동 소멸됨
+    		System.out.println("destroy()");
+    	}
+    }
+    ```
+
   - 방법 2) 어노테이션 이용 
 
-- #### Spring Bean Scope
+    ```java
+    @PostConstruct
+    public void initMethod() { // 빈 초기화 과정에서 호출
+    	System.out.println("initMethod()");	
+    }
+    	
+    @PreDestroy
+    public void destroyMethod() { // 빈 소멸 과정에서 호출
+    	System.out.println("destroyMethod()");
+    }
+    ```
+
+    ​
