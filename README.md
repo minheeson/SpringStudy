@@ -119,3 +119,43 @@
   ```
 
   ​
+
+## DI 설정 방법
+
+- #### XML 파일을 이용한 DI 설정 방법
+
+  ```xml
+  <bean id="student1" class="spring_ex_6_1.Student">
+  		<!-- 생성자 설정(기초 데이터) -->
+  		<constructor-arg value="홍길동" />
+  		<constructor-arg value="10" />
+    
+  		<!-- 생성자 설정(객체 데이터) -->
+  		<constructor-arg>
+  			<list>
+  				<value>수영</value>
+  				<value>요리</value>
+  			</list>
+  		</constructor-arg>
+
+  		<!-- setter() 설정(property) -->
+  		<property name="height">
+  			<value>187</value>
+  		</property>
+
+  		<property name="weight" value="84" />
+  </bean>
+  ```
+
+  ```xml
+  <bean id="family" class="spring_ex_6_1.Family" c:papaName="홍아빠" c:mamiName="홈엄마" p:sisterName="홍누나">
+  		<property name="brotherName" value="홍오빠" />
+  </bean>
+  ```
+
+  - c 네임스페이스 : construct
+  - p 네임스페이스 : property 
+
+- #### JAVA를 이용한 DI 설정 방법
+
+- #### XML과 JAVA를 같이 사용 
