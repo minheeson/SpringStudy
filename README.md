@@ -205,7 +205,7 @@
     	@Override
     	public void destroy() throws Exception {
     		// 빈 소멸 과정에서 호출
-          	// ctx.close()는 컨테이너가 소멸하는 단계, 컨테이너가 소멸하면 빈은 자동 소멸됨
+    		// ctx.close()는 컨테이너가 소멸하는 단계, 컨테이너가 소멸하면 빈은 자동 소멸됨
     		System.out.println("destroy()");
     	}
     }
