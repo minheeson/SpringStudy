@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="student1" class="spring_ex_6_1.Student">
+		<!-- 생성자 설정(기초 데이터) -->
+		<constructor-arg value="홍길동" />
+		<constructor-arg value="10" />
+		<!-- 생성자 설정(객체 데이터) -->
+		<constructor-arg>
+			<list>
+				<value>수영</value>
+				<value>요리</value>
+			</list>
+		</constructor-arg>
+
+		<!-- setter() 설정(property) -->
+		<property name="height">
+			<value>187</value>
+		</property>
+
+		<property name="weight" value="84" />
+	</bean>
+
+	<bean id="sutudentInfo1" class="spring_ex_6_1.StudentInfo">
+		<!-- 다른 bean 객체 참조 -->
+		<property name="student">
+			<ref bean="student1" />
+		</property>
+	</bean>
+</beans>
