@@ -99,22 +99,23 @@
 
 - #### DI (Dependency Injection) :: 의존 주입 
 
-  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/5_DI.png" width=400/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/5_DI.png" width=500/>
 
-  - DI 장점 : JAVA 파일의 수정 없이 __스프링 설정 파일만을 수정하여__ 부품들을 생성/조립할 수 있음
+- #### DI 장점 :: JAVA 파일의 수정 없이 _스프링 설정 파일만을 수정하여_ 부품들을 생성/조립할 수 있음 
 
-    ```java
-    AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationCTX.xml");
-    Pencil pencil = ctx.getBean("pencil", Pencil.class);
-    pencil.use();
-    		
-    ctx.close();
-    ```
+  ```java
+  AbstractApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationCTX.xml");
+  Pencil pencil = ctx.getBean("pencil", Pencil.class);
+  pencil.use();
+  		
+  ctx.close();
+  ```
 
-    ```xml
-    <bean id="pencil" class="spring_ex_5.Pencil6B"/>
-    <!-- <bean id="pencil" class="spring_ex_5.Pencil4B"/> -->
-    <!-- <bean id="pencil" class="spring_ex_5.Pencil6BWithEraser"/> -->
-    ```
+  ```xml
+  <bean id="pencil" class="spring_ex_5.Pencil6B"/>
+  <!-- <bean id="pencil" class="spring_ex_5.Pencil4B"/> -->
+  <!-- <bean id="pencil" class="spring_ex_5.Pencil6BWithEraser"/> -->
+  <!-- applicationCTX.xml 에서 클래스만 바꿔주고 있음 -->
+  ```
 
-    - applicationCTX.xml 에서 클래스만 바꿔주고 있음 
+  ​
