@@ -271,7 +271,7 @@
   // student1과 student2의 주소값은 동일함. 따라서, 동일한 객체~!
   ```
 
-  - <bean> 태그의 scope 속성 값 
+  - bean 태그의 scope 속성 값 
     - singleton : 스프링 컨테이너에 의해 한 개의 빈 객체만 생성 (기본 값)
     - prototype : 빈을 사용할 때 마다 객체를 생성 
     - request : HTTP 요청마다 빈 객체 생성
