@@ -415,7 +415,7 @@
 
   - __proxy를 이용한__ AOP 구현 방법 
 
-    <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/9_aop.png" width=500 />
+    <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/9_aop.png" width=400 />
 
     - 수행 할 Advice를 Proxy에 요청
     - 핵심 기능 수행전에 사용할 공통 기능 수행
