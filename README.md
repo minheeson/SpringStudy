@@ -276,3 +276,34 @@
     - prototype : 빈을 사용할 때 마다 객체를 생성 
     - request : HTTP 요청마다 빈 객체 생성
     - session : HTTP 세션마다 빈 객체 생성 
+
+## 외부 파일을 이용한 설정 
+
+- #### Environment 객체를 이용해서 스프링 빈 설정 
+
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/8_envionment.png" width=600 />
+
+  ```java
+  ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+  ConfigurableEnvironment env = ctx.getEnvironment();
+  MutablePropertySources propertySources = env.getPropertySources();
+  		
+  try {
+    propertySources.addLast(new ResourcePropertySource("classpath:admin.properties"));
+    System.out.println( env.getProperty("admin.id") );
+    System.out.println( env.getProperty("admin.pw") );
+  } catch (IOException e) {}
+    
+  GenericXmlApplicationContext gCtx = (GenericXmlApplicationContext)ctx;
+  gCtx.load("applicationCTX.xml");
+  gCtx.refresh();
+  		
+  AdminConnection adminConnection = gCtx.getBean("adminConnection", AdminConnection.class);
+  System.out.println("admin ID : " + adminConnection.getAdminId());
+  System.out.println("amdin PW : " + adminConnection.getAdminPw());
+  		
+  gCtx.close();
+  ctx.close();
+  ```
+
+  ​
