@@ -417,9 +417,67 @@
 
     <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/9_aop.png" width=400 />
 
-    - 수행 할 Advice를 Proxy에 요청
-    - 핵심 기능 수행전에 사용할 공통 기능 수행
-    - 공통 기능 수행 후 핵심 기능의 로직을 수행
-    - 핵심 기능 수행 후 다시 Proxy로 가서 공통 기능 수행 
+    1. 수행 할 Advice를 Proxy에 요청
+    2. 핵심 기능 수행전에 사용할 공통 기능 수행
+    3. 공통 기능 수행 후 핵심 기능의 로직을 수행
+    4. 핵심 기능 수행 후 다시 Proxy로 가서 공통 기능 수행 
 
-- #### XML 기반의 AOP 구현 
+- #### XML 기반의 AOP 구현
+
+  1. 의존 설정 (pom.xml)
+
+     ```xml
+     <!-- AOP -->
+     <dependency>
+     	<groupId>org.aspectj</groupId>
+     	<artifactId>aspectjweaver</artifactId>
+     	<version>1.7.4</version>
+     </dependency>
+     ```
+
+  2. 공통 기능 클래스 제작 :: Advice 역할 클래스
+
+     ```java
+     public class LogAop {
+
+     	public Object loggerAop(ProceedingJoinPoint joinpoint) throws Throwable {
+     		String signatureStr = joinpoint.getSignature().toShortString();
+     		System.out.println(signatureStr + " is start.");
+     		long st = System.currentTimeMillis();
+
+           	// 핵심 기능 전에 공통 기능 수행  
+     		try {
+               	// 핵심 기능 수행  
+     			Object obj = joinpoint.proceed();
+     			return obj;
+     		} finally {
+                 // 핵심 기능 후에 공통 기능 수행  
+     			long et = System.currentTimeMillis();
+     			System.out.println(signatureStr + " is finished.");
+     			System.out.println(signatureStr + " 경과시간 : " +(et - st));
+     		}
+     	}
+
+     }
+     ```
+
+  3. XML 설정 파일에 Aspect 설정 
+
+     ```xml
+     <bean id="logAop" class="spring_ex_9.LogAop" />
+
+     <aop:config>
+     	<aop:aspect id="logger" ref="logAop">
+     		<aop:pointcut expression="within(spring_ex_9.*)" id="publicM" />
+     		<aop:around method="loggerAop" pointcut-ref="publicM" />
+     	</aop:aspect>
+     </aop:config>
+     ```
+
+- #### Advice 종류
+
+  - _aop:before_ : 메소드 실행 전에 advice 실행
+  - _aop:after-returning_ : 정상적으로 메소드 실행 후에 advice 실행
+  - _aop:after-throwing_ : 메소드 실행 중 exception 발생시 advice 실행
+  - _aop:after_ : 메소드 실행 중 exception이 발생해도 advice 실행 
+  - _aop:around_ : 메소드 실행 전/후 및 exception 발생시 advice 실행  
