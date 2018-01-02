@@ -181,6 +181,26 @@
 
 - #### XML과 JAVA를 같이 사용 
 
+  - XML 파일에 JAVA 파일을 포함시켜 사용하는 방법
+
+    ```xml
+    <!-- annotation 이 들어간 config를 사용하겠다 명시 -->
+    <context:annotation-config />
+    <bean class ="spring_ex_6_3.ApplicationConfig" />
+
+    ... 
+    ```
+
+  - JAVA 파일에 XML 파일을 포함시켜 사용하는 방법 
+
+    ```java
+    @Configuration
+    @ImportResource("classpath:applicationCTX.xml")
+    public class ApplicationConfig {
+      ...
+    }
+    ```
+
 ## LifeCyle 
 
 - #### Container LifeCycle
@@ -225,4 +245,34 @@
     }
     ```
 
-    ​
+- #### Spring Bean Scope
+
+  ```xml
+  <bean id ="student" class = "spring_ex_7_3.Student" scope ="singleton">
+    <constructor-arg value = "홍길순" />
+    <constructor-arg value = "30" />
+  </bean>
+  ```
+
+  ```java
+  Student student1 = ctx.getBean("student", Student.class);
+  Student student2 = ctx.getBean("student", Student.class);
+  student2.setName("손민희");
+  student2.setAge(100);
+
+  if(student1.equals(student2)) {
+    System.out.println("student1 == student2"); 
+  } else {
+    System.out.println("stuent1 != student2");
+  }
+
+  // student1 == student2 
+  // config 파일에서 빈이 생성된것이기 때문에
+  // student1과 student2의 주소값은 동일함. 따라서, 동일한 객체~!
+  ```
+
+  - <bean> 태그의 scope 속성 값 
+    - singleton : 스프링 컨테이너에 의해 한 개의 빈 객체만 생성 (기본 값)
+    - prototype : 빈을 사용할 때 마다 객체를 생성 
+    - request : HTTP 요청마다 빈 객체 생성
+    - session : HTTP 세션마다 빈 객체 생성 
