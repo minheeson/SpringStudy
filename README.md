@@ -413,13 +413,13 @@
     - _Pointcut_ : Jointpoint의 부분으로 실제로 Advice가 적용된 부분
     - _Weaving_ : Advice를 핵심 기능에 적용하는 행위 
 
-  - __proxy__를 이용한 AOP 구현 방법 
+  - __proxy를 이용한__ AOP 구현 방법 
 
     <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/9_aop.png" width=500 />
 
-    - 1) 수행 할 Advice를 Proxy에 요청
-    - 2) 핵심 기능 수행전에 사용할 공통 기능 수행
-    - 3) 공통 기능 수행 후 핵심 기능의 로직을 수행
-    - 4) 핵심 기능 수행 후 다시 Proxy로 가서 공통 기능 수행 
+    - 수행 할 Advice를 Proxy에 요청
+    - 핵심 기능 수행전에 사용할 공통 기능 수행
+    - 공통 기능 수행 후 핵심 기능의 로직을 수행
+    - 핵심 기능 수행 후 다시 Proxy로 가서 공통 기능 수행 
 
 - #### XML 기반의 AOP 구현 
