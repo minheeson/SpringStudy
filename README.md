@@ -382,7 +382,7 @@
     ```
 
 
-  - JAVA 설정 파일을 이용하는 경우 
+-   JAVA 설정 파일을 이용하는 경우 
 
     ```java
     @Configuration
@@ -395,6 +395,20 @@
     }
     ```
 
-    ​
 
-    ​
+## AOP
+
+- #### AOP란
+
+  - 공통 기능을 모든 모듈에 적용하기 위한 __상속의 한계__
+    - JAVA에서는 다중 상속이 불가능
+    - 핵심 기능 코드와 공통 기능 코드가 섞여 있어, 효율성이 떨어짐
+  - __AOP__ (Aspect Oriented Programming) : 핵심 기능과 공통 기능을 분리해 놓고, __공통기능을 필요로 하는 핵심 기능에 적용하는 방법__ 
+    - _Aspect_ : 공통 기능
+    - _Advice_ : Aspect의 기능 자체
+    - _Jointpoint_ : Advice를 적용해야하는 부분 (메소드)
+    - _Pointcut_ : Jointpoint의 부분으로 실제로 Advice가 적용된 부분
+    - _Weaving_ : Advice를 핵심 기능에 적용하는 행위 
+  - proxy를 이용한 AOP 구현 방법 
+
+- #### XML 기반의 AOP 구현 
