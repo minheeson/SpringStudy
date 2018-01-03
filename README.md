@@ -481,3 +481,56 @@
   - _aop:after-throwing_ : 메소드 실행 중 exception 발생시 advice 실행
   - _aop:after_ : 메소드 실행 중 exception이 발생해도 advice 실행 
   - _aop:around_ : 메소드 실행 전/후 및 exception 발생시 advice 실행  
+
+- #### @Aspect 를 이용한 AOP 구현
+
+  1. 의존 설정 (pom.xml) : 위와 동일
+
+  2. __@Aspect 어노테이션을 이용한__ Aspect 클래스 제작
+
+     ```java
+     @Aspect
+     public class LogAop {
+       
+       @Pointcut("within(spring_ex_9.*)")
+       private void pointcutMethod(){
+       }
+       
+       @Around("pointcutMethod()")
+       public Object loggerAop(ProceedingJoinPoint joinpoint) throws Throwable {
+     		String signatureStr = joinpoint.getSignature().toShortString();
+     		System.out.println(signatureStr + " is start.");
+     		long st = System.currentTimeMillis();
+     	
+           	// 핵심 기능 전에 공통 기능 수행  
+     		try {
+               	// 핵심 기능 수행  
+     			Object obj = joinpoint.proceed();
+     			return obj;
+     		} finally {
+                 // 핵심 기능 후에 공통 기능 수행  
+     			long et = System.currentTimeMillis();
+     			System.out.println(signatureStr + " is finished.");
+     			System.out.println(signatureStr + " 경과시간 : " +(et - st));
+     		}
+     	}
+       
+       @Before("within(spring_ex_9.*)")
+       public void beforeAdvice(){
+       }
+       
+     }
+     ```
+
+  3. XML 파일에 __aop:aspectj-autoproxy__ 설정 
+
+     ```xml
+     <aop:aspectj-autoproxy/>
+     <bean id="logAop" class="spring_ex_9.LogAop" />
+
+     ...
+     ```
+
+- #### AspectJ Pointcut 표현식
+
+   
