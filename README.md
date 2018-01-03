@@ -566,8 +566,17 @@
 
   <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/11_mvc.png" width=450/>
 
-  - ​
+  1. 서블릿에게 URL로 접근하여 해당 정보를 요청
+     - DispatcherServlet이 클라이언트의 요청을 제일 먼저 받음 
+  2. 핸들러 매핑에 해당 요청을 매핑한 컨트롤러가 있는지 검색 요청
+  3. 컨트롤러에 처리 요청
+  4. 컨트롤러가 클라이언트의 요청을 처리하고, 결과를 보여줄 View의 이름을 리턴
+  5. 컨트롤러에서 보내온 View의 이름을 서블릿이 viewResolver에 보내 해당 View를 검색
+  6. 검색한 결과를 View에 보냄
+  7. View의 처리 결과를 DispatcherServlet에 보냄 
 
 - #### 스프링 MVC 구조
+
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/11_springmvc.png" width=450/>
 
   ​
