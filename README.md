@@ -533,7 +533,7 @@
 
 - #### AspectJ Pointcut 표현식
 
-  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/10_aop.png" width=100/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/10_aop.png" width=200/>
 
   - excution
 
