@@ -533,4 +533,30 @@
 
 - #### AspectJ Pointcut 표현식
 
-   
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/10_aop.png" width=100/>
+
+  - excution
+
+    ```java
+    @Pointcut("excution(public void get*(..))") // public void 인 모든 get 메소드
+    @Pointcut("excution(*spring_ex_9.*.*())") // spring_ex_9 패키지에 파라미터가 없는 모든 메소드
+    @Pointcut("excution(*spring_ex_9..*.*())") // spring_ex_9 패키지 & spring_ex_9 하위 패키지에 파라미터가 없는 모든 메소드 
+    @Pointcut("excution(*spring_ex_9.Worker.*())") // spring_ex_9.Worker 모든 메소드 
+    ```
+
+  - within
+
+    ```java
+    @Pointcut("within(spring_ex_9.*)") // spring_ex_9 패키지 안에 있는 모든 메소드
+    @Pointcut("within(spring_ex_9..*)") // spring_ex_9 패키지 및 하위 패키지 안에 있는 모든 메소드
+    @Pointcut("within(spring_ex_9.Worker)") // spring_ex_9.Worker 모든 메소드 
+    ```
+
+  - bean
+
+    ```java
+    @Pointcut("bean(student)") // student 빈에만 적용
+    @Pointcut("bean(*ker)") // ~ker로 끝나는 빈에만 적용 
+    ```
+
+    ​
