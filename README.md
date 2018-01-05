@@ -381,7 +381,7 @@ ctx.close();
   ctx.load("applicationCTX_dev.xml", "applicationCTX_run.xml");
   ```
 
--   JAVA 설정 파일을 이용하는 경우 
+- JAVA 설정 파일을 이용하는 경우 
 
     ```java
     @Configuration
@@ -697,7 +697,7 @@ public class MyController {
     @RequestMapping("/join/formOk")
     public String join(Member member) {
 
-    		return "join/formOk";
+              return "join/formOk";
     }
     ```
 
