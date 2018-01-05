@@ -577,7 +577,7 @@
 
 - #### 스프링 MVC 구조
 
-  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/11_springmvc.png" width=450/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/11_springmvc.png" width=370/>
 
 ## Controller
 
@@ -591,11 +591,11 @@
 
   	@RequestMapping("/view")
   	public String view() {
-        	// @RequestMapping("/view") :: 요청 경로 지정 
-  		// "/view"로 들어오면 view(리턴값)페이지로 찾아가라
-  		/* 요청 처리 메소드 구현 */
-        	// return "view" :: 뷰 페이지 이름 
-  		return "view";
+            // @RequestMapping("/view") :: 요청 경로 지정 
+            // "/view"로 들어오면 view(리턴값)페이지로 찾아가라
+            /* 요청 처리 메소드 구현 */
+            // return "view" :: 뷰 페이지 이름 
+            return "view";
   	}
   ```
 
