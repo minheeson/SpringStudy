@@ -583,7 +583,7 @@
 
 - #### Controller 클래스 제작
 
-  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/12_controller.png" width=400/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/12_controllers.png" width=360/>
 
   ```java
   @Controller
@@ -591,11 +591,11 @@
 
   	@RequestMapping("/view")
   	public String view() {
-            // @RequestMapping("/view") :: 요청 경로 지정 
-            // "/view"로 들어오면 view(리턴값)페이지로 찾아가라
-            /* 요청 처리 메소드 구현 */
-            // return "view" :: 뷰 페이지 이름 
-            return "view";
+              // @RequestMapping("/view") :: 요청 경로 지정 
+              // "/view"로 들어오면 view(리턴값)페이지로 찾아가라
+              /* 요청 처리 메소드 구현 */
+              // return "view" :: 뷰 페이지 이름 
+              return "view";
   	}
   ```
 
