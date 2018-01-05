@@ -774,4 +774,8 @@ public String goStudent(HttpServletRequest httpServletRequest, Model model) {
   }
   ```
 
-  ​
+
+## Form 데이터 값 검증 
+
+### Validator 를 이용한 검증 
+
