@@ -864,7 +864,7 @@ public String goStudent(HttpServletRequest httpServletRequest, Model model) {
     	String page = "createDonePage";
     	
     	if(result.hasErrors()) {
-          page = "createPage";
+    		page = "createPage";
     	}
     	
     	return page;
