@@ -583,7 +583,7 @@
 
 - #### Controller 클래스 제작
 
-  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/12_controllers.png" width=360/>
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/12_controllers.png" width=300/>
 
   ```java
   @Controller
