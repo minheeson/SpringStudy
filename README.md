@@ -14,7 +14,7 @@
 
 ## DI(Dependency Injection) 와 IOC 컨테이너 
 
-#### A 객체에서 B/C 객체 이용하는 방법
+### A 객체에서 B/C 객체 이용하는 방법
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/2_DI.png" width=500/>
 
@@ -43,7 +43,7 @@
 
 ## Spring property
 
-#### Spring Property Configuration 
+### Spring Property Configuration
 
 ``` java
 // xml파일 위치 지정
@@ -98,7 +98,7 @@ ctx.close();
 
 ## DI 활용
 
-#### DI (Dependency Injection) :: 의존 주입 
+### DI (Dependency Injection) :: 의존 주입
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/5_DI.png" width=500/>
 
@@ -123,7 +123,7 @@ ctx.close();
 
 ## DI 설정 방법
 
-#### XML 파일을 이용한 DI 설정 방법
+### XML 파일을 이용한 DI 설정 방법
 
 ```xml
 <bean id="student1" class="spring_ex_6_1.Student">
@@ -157,7 +157,7 @@ ctx.close();
 - c 네임스페이스 : construct
 - p 네임스페이스 : property 
 
-#### JAVA를 이용한 DI 설정 방법
+### JAVA를 이용한 DI 설정 방법
 
 ```java
 @Configuration
@@ -180,7 +180,7 @@ public class ApplicationConfig {
 
 - @Configuration, @Bean 어노테이션 이용 
 
-#### XML과 JAVA를 같이 사용 
+### XML과 JAVA를 같이 사용
 
 - XML 파일에 JAVA 파일을 포함시켜 사용하는 방법
 
@@ -204,11 +204,11 @@ public class ApplicationConfig {
 
 ## LifeCyle 
 
-#### Container LifeCycle
+### Container LifeCycle
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/7_containerLifecycle.png" width=500/>
 
-#### Spring Bean LifeCycle
+### Spring Bean LifeCycle
 
 - 방법 1) InitializingBean, DisposableBean Interface 이용 
 
@@ -246,7 +246,7 @@ public class ApplicationConfig {
   }
   ```
 
-#### Spring Bean Scope
+### Spring Bean Scope
 
 ```xml
 <bean id ="student" class = "spring_ex_7_3.Student" scope ="singleton">
@@ -280,7 +280,7 @@ if(student1.equals(student2)) {
 
 ## 외부 파일을 이용한 설정 
 
-#### Environment 객체를 이용해서 스프링 빈 설정 
+### Environment 객체를 이용해서 스프링 빈 설정
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/8_envionment.png" width=600 />
 
@@ -306,7 +306,7 @@ System.out.println("amdin PW : " + adminConnection.getAdminPw());
 gCtx.close();
 ctx.close();
 ```
-#### 프로퍼티 파일을 이용한 설정 
+### 프로퍼티 파일을 이용한 설정
 
 - XML 파일에 프로퍼티 파일을 명시 
 
@@ -356,7 +356,7 @@ ctx.close();
   }
   ```
 
-#### 프로파일(profile) 속성을 이용한 설정 
+### 프로파일(profile) 속성을 이용한 설정
 
 - 동일한 스프링 빈을 여러 개 만들어 놓고 상황(환경)에 따라서 적절한 스프링 빈 사용
 
@@ -397,7 +397,7 @@ ctx.close();
 
 ## AOP (Aspect Oriented Programming)
 
-#### AOP란
+### AOP란
 
 - 공통 기능을 모든 모듈에 적용하기 위한 __상속의 한계__
 
@@ -421,7 +421,7 @@ ctx.close();
   3. 공통 기능 수행 후 핵심 기능의 로직을 수행
   4. 핵심 기능 수행 후 다시 Proxy로 가서 공통 기능 수행 
 
-#### XML 기반의 AOP 구현
+### XML 기반의 AOP 구현
 
 1. 의존 설정 (pom.xml)
 
@@ -473,7 +473,7 @@ ctx.close();
    </aop:config>
    ```
 
-#### Advice 종류
+### Advice 종류
 
 - _aop:before_ : 메소드 실행 전에 advice 실행
 - _aop:after-returning_ : 정상적으로 메소드 실행 후에 advice 실행
@@ -481,7 +481,7 @@ ctx.close();
 - _aop:after_ : 메소드 실행 중 exception이 발생해도 advice 실행 
 - _aop:around_ : 메소드 실행 전/후 및 exception 발생시 advice 실행  
 
-#### @Aspect 를 이용한 AOP 구현
+### @Aspect 를 이용한 AOP 구현
 
 1. 의존 설정 (pom.xml) : 위와 동일
 
@@ -530,7 +530,7 @@ ctx.close();
    ...
    ```
 
-#### AspectJ Pointcut 표현식
+### AspectJ Pointcut 표현식
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/10_aop.png" width=150/>
 
@@ -560,7 +560,7 @@ ctx.close();
 
 ## Spring MVC
 
-#### 스프링 MVC 개요
+### 스프링 MVC 개요
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/11_mvc.png" width=450/>
 
@@ -573,13 +573,13 @@ ctx.close();
 6. 검색한 결과를 View에 보냄
 7. View의 처리 결과를 DispatcherServlet에 보냄 
 
-#### 스프링 MVC 구조
+### 스프링 MVC 구조
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/11_springmvc.png" width=370/>
 
 ## Controller
 
-#### Controller 클래스 제작
+### Controller 클래스 제작
 
 <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/12_controllers.png" width=300/>
 
@@ -596,7 +596,7 @@ public class MyController {
             return "view";
 	}
 ```
-#### 뷰에 데이터 전달
+### 뷰에 데이터 전달
 
 - 컨트롤러에서 로직 수행 후 뷰페이지를 반환하는데, 이때 __뷰에서 사용하게 될 데이터를 객체로 전달할 수 있음__
 
@@ -625,7 +625,7 @@ public class MyController {
   	}
   ```
 
-#### 클래스에 @RequestMapping 적용 
+### 클래스에 @RequestMapping 적용
 
 - 메소드에 @RequestMapping 을 적용하여 요청 경로를 획득함
 
@@ -648,7 +648,7 @@ public class MyController {
 
 ## Form 데이터 
 
-#### HttpServletRequest 클래스
+### HttpServletRequest 클래스
 
 - HttpServletRequest 클래스를 이용해서 데이터를 전송 
 
@@ -669,7 +669,7 @@ public class MyController {
   - Model : 데이터를 담는 객체
   - 즉, __HttpServletRequest__ 는 데이터를 받을 때, __Model__ 은 데이터를 보낼 때 사용 
 
-#### @RequesetParam
+### @RequesetParam
 
 - @RequestParam 어노테이션을 이용해서 데이터를 전송 
 
@@ -701,7 +701,7 @@ public class MyController {
     }
     ```
 
-#### @PathVariable
+### @PathVariable
 
 - @PathVariable 어노테이션을 이용하면 __경로에 변수를 넣어__ 요청메소드에서 파라미터로 이용할 수 있음 
 
