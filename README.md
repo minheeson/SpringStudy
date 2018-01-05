@@ -779,7 +779,7 @@ public String goStudent(HttpServletRequest httpServletRequest, Model model) {
 
 ### Validator 를 이용한 검증 
 
-<img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/15_validator.png" width="450"/>
+​	<img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/15_validator.png" width="500"/>
 
 - 폼에서 전달 되는 데이터를 커맨드 객체에 담아 컨트롤 객체에 전달하는데, 이때 __커맨드 객체의 유효성 검사를 함__
 
