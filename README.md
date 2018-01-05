@@ -697,7 +697,7 @@ public class MyController {
     @RequestMapping("/join/formOk")
     public String join(Member member) {
 
-              return "join/formOk";
+    	return "join/formOk";
     }
     ```
 
