@@ -581,4 +581,70 @@
 
 ## Controller
 
-- ​
+- #### Controller 클래스 제작
+
+  <img src="https://github.com/minheeson/SpringStudy/blob/master/screenshots/12_controller.png" width=400/>
+
+  ```java
+  @Controller
+  public class MyController {
+
+  	@RequestMapping("/view")
+  	public String view() {
+        	// @RequestMapping("/view") :: 요청 경로 지정 
+  		// "/view"로 들어오면 view(리턴값)페이지로 찾아가라
+  		/* 요청 처리 메소드 구현 */
+        	// return "view" :: 뷰 페이지 이름 
+  		return "view";
+  	}
+  ```
+
+- #### 뷰에 데이터 전달
+
+  - 컨트롤러에서 로직 수행 후 뷰페이지를 반환하는데, 이때 __뷰에서 사용하게 될 데이터를 객체로 전달할 수 있음__
+
+  - __Model 클래스__ 를 이용한 데이터 전달
+
+    ```java
+    @RequestMapping("/content/contentView")
+    	public String contentView(Model model) {
+    		// Model :: 컨트롤러에서 데이터를 줄 때, 데이터를 갖고 있는 객체
+
+    		model.addAttribute("id", "minimini");
+    		// 컨트롤러에서 뷰쪽으로 contentView를 찾으러 갈때, model도 데리고 감
+    		return "content/contentView";
+    	}
+    ```
+
+  - __ModelAndView 클래스__ 를 이용한 데이터 전달  
+
+    ```java
+    @RequestMapping("/modeAndView/modelView")
+    	public ModelAndView modelAndView() {
+    		ModelAndView mv = new ModelAndView();
+    		mv.addObject("id", "abcdes");
+    		mv.setViewName("/modelAndView/modelView);");
+    		return mv;
+    	}
+    ```
+
+- #### 클래스에 @RequestMapping 적용 
+
+  - 메소드에 @RequestMapping 을 적용하여 요청 경로를 획득함
+
+  - @RequestMapping 어노테이션을 클래스에도 적용할 수 있음 
+
+    ```java
+    @Controller
+    @RequestMapping("/board")
+    public class HomeController {
+      
+        @RequestMapping("/write")
+        public String write(Model model) {
+            model.addAttribute("id", 30);
+            return "board/write";
+        }
+    }
+    ```
+
+    - 클래스 (/board) + 메소드 (/write) = 조합된 요청 경로 (/board/write)
